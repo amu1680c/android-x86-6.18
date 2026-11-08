@@ -63,3 +63,15 @@ config ANDROID_BINDER_ALLOC_KUNIT_TEST
 	  for testing without interfering with a running system.
 
 endmenu
+
+config ASHMEM
+	bool "Enable the Anonymous Shared Memory Subsystem"
+	default n
+	depends on SHMEM
+	help
+	  The Anonymous Shared Memory subsystem is a Linux kernel
+	  subsystem which provides a file-based shared memory mechanism
+	  used by Android. Ported from AOSP android-4.9
+	  (drivers/staging/android/ashmem.c) to Linux 6.18; the
+	  in-tree driver was removed from mainline, so this is an
+	  out-of-tree compatibility copy for Android 7.1 userspace.
